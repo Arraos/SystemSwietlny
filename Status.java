@@ -1,5 +1,5 @@
 package Paczka;
 
 public enum Status {
-    wlaczone, wylaczone;
+    zielone,zolte,czerwone,zoltoczerwone;
 }
