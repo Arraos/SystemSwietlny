@@ -2,32 +2,23 @@ package Paczka;
 
 public class Sygnalizator {
     Status swiatlo = Status.czerwone;
-    int czasSwiecenia;
 
 
-    public int getCzasSwiecenia(){
-        return czasSwiecenia;
-    }
+
     //Rozpoczęcie bloku metod zmiany kazdego pojedynczego swiatla.
 
 
-    public void wlaczZielone() throws InterruptedException {
+    public void wlaczZielone(){
         swiatlo = Status.zielone;
     }
-    public void wlaczZolte() throws InterruptedException {
+    public void wlaczZolte(){
         swiatlo = Status.zolte;
-        int czas = getCzasSwiecenia();
-        Thread.sleep(czas);
     }
-    public void wlaczCzerwone() throws InterruptedException {
+    public void wlaczCzerwone(){
         swiatlo = Status.czerwone;
-        int czas = getCzasSwiecenia();
-        Thread.sleep(czas);
     }
-    public void wlaczZoltoCzerwone() throws InterruptedException {
+    public void wlaczZoltoCzerwone(){
         swiatlo = Status.zoltoczerwone;
-        int czas = getCzasSwiecenia();
-        Thread.sleep(czas);
     }
 
 
