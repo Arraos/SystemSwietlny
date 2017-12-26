@@ -13,8 +13,6 @@ public class Sygnalizator {
 
     public void wlaczZielone() throws InterruptedException {
         swiatlo = Status.zielone;
-        int czas = getCzasSwiecenia();
-        Thread.sleep(czas);
     }
     public void wlaczZolte() throws InterruptedException {
         swiatlo = Status.zolte;
