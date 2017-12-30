@@ -1,5 +1,3 @@
-package Paczka;
-
 import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,16 +16,17 @@ public class SystemSwietlny {
         Sygnalizator sygnalizator4 = new Sygnalizator();
         Sygnalizator sygnalizator5 = new Sygnalizator();
 
-        // Pobranie aktualnej godziny
-
-        Date currentDate = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-        String dateString = dateFormat.format(currentDate);
-        System.out.println(dateString);
-
         // Tworzenie obiektu licznika
 
         Licznik Sekundomierz = new Licznik();
+
+        // Tworzenie obiektu uzytkownika
+
+        Uzytkownik uzytkownik = new Uzytkownik(); // Jeszcze nie wykorzystany
+
+        // Pobranie aktualnej godziny i ustawienie czasu trwania sygnalizatora
+
+        Sekundomierz.setCzasSygnalizatora(Sekundomierz.czasTeraz());
 
         // Tworzenie listy z obiektami gdzie "lista1" to sygnalizatory poziome, a "lista2" to sygnalizatory pionowe
 
@@ -37,12 +36,8 @@ public class SystemSwietlny {
         System.out.println("W danym momencie sygnalizatorow pionowych jest: " + lista2.length);
 
                                      //Petla testowa
-        //Deklaracja licznikow
-        int o = 0;
-        int i = 0;
-
         //Warunek while
-
+        
             //Pętle for dla listy pierwszej
 
             for (Sygnalizator sekwencja: lista1) {
