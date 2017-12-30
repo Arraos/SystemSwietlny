@@ -15,4 +15,7 @@ public class Sygnalizator {
         swiatlo = Status.zoltoczerwone;
     }
     //Koniec bloku metod zmiany każdego pojedynczego swiatla.
+    public void dodajSygnalizator(){
+        
+    }
 }
