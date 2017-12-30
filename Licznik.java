@@ -1,13 +1,12 @@
-package Paczka;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Licznik {
     int czasZielone = 20000;
-    int czasZolte = 10000;
+    int czasZolte = 8000;
     int czasZoltoZielone = 5000;
     int czasCzerwone = 5000;
+//Metody pobierające aktualny czas pojedyńczego światła
 
     public int getCzasZielone(){
     return czasZielone;
@@ -22,24 +21,37 @@ public class Licznik {
     {
         return czasCzerwone;
     }
-    public void setCzasZielone(int czasTeraz) {
-        if (czasTeraz == 1) {       // Od 6:30 do 9:00 oraz od 15:00 do 18:00
-            czasZielone = 40000;
-        }
-        else if(czasTeraz == 2){    // Od 9:00 do 15:00 oraz od 18:00 do 23:00
-            czasZielone = 30000;
-        }
-        else if (czasTeraz == 3){   // Od 23:00 do 6:30
-            czasZielone = 70000;
-        }
-    }
+
+//Metoda pobierająca aktualną godzinę i zamiana jej ze stringa na int
+
     public int czasTeraz()
     {
         Date currentDate = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH");
         String dateString = dateFormat.format(currentDate);
         System.out.println(dateString);
-
-        if (dateString<12)
+        int czasTeraz=Integer.parseInt(dateString);
+        return czasTeraz;
+           }
+//Metoda pobierająca godzinę w formie integer'a, sprawdzenie oraz dopasowanie do odpowiedniego warunku
+    public void setCzasSygnalizatora(int czasTeraz) {
+        if ((czasTeraz >= 7 && czasTeraz <= 9) || (czasTeraz >= 15 && czasTeraz <= 18)) { // Od 7:00 do 9:00 oraz od 15:00 do 18:00
+            czasZielone = 40000;
+            czasZolte = 10000;
+            czasCzerwone = 8000;
+            System.out.println("Tryb pierwszy");
+        }else if ((czasTeraz >9 && czasTeraz < 15) || (czasTeraz > 18 && czasTeraz < 23)) { //Od 9 do 15 oraz od 18 do 23
+            czasZielone = 20000;
+            czasZolte = 8000;
+            czasCzerwone = 5000;
+            System.out.println("Tryb drugi");
+        }else if (czasTeraz >=0 && czasTeraz <7 ){ // W godzinach nocnych 23-7
+            czasZielone = 80000;
+            czasZolte = 6000;
+            czasCzerwone = 5000;
+            System.out.println("Tryb trzeci");
+        }
     }
+
 }
+
