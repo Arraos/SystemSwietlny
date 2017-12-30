@@ -2,10 +2,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Licznik {
-    int czasZielone = 20000;
-    int czasZolte = 8000;
-    int czasZoltoZielone = 5000;
-    int czasCzerwone = 5000;
+    private int czasZielone = 20000;
+    private int czasZolte = 8000;
+    private int czasZoltoCzerwone = 5000;
+    private int czasCzerwone = 5000;
+
 //Metody pobierające aktualny czas pojedyńczego światła
 
     public int getCzasZielone(){
@@ -14,8 +15,8 @@ public class Licznik {
     public int getCzasZolte(){
         return czasZolte;
     }
-    public int getCzasZoltoZielone(){
-        return czasZoltoZielone;
+    public int getCzasZoltoCzerwone(){
+        return czasZoltoCzerwone;
     }
     public int getCzasCzerwone()
     {
@@ -33,7 +34,9 @@ public class Licznik {
         int czasTeraz=Integer.parseInt(dateString);
         return czasTeraz;
            }
+
 //Metoda pobierająca godzinę w formie integer'a, sprawdzenie oraz dopasowanie do odpowiedniego warunku
+
     public void setCzasSygnalizatora(int czasTeraz) {
         if ((czasTeraz >= 7 && czasTeraz <= 9) || (czasTeraz >= 15 && czasTeraz <= 18)) { // Od 7:00 do 9:00 oraz od 15:00 do 18:00
             czasZielone = 40000;
