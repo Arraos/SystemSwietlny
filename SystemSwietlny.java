@@ -1,8 +1,4 @@
-import java.lang.reflect.Array;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedList;
+import java.util.Scanner;
 
 public class SystemSwietlny {
 
@@ -26,6 +22,7 @@ public class SystemSwietlny {
 
         // Pobranie aktualnej godziny i ustawienie czasu trwania sygnalizatora
 
+        System.out.print("Jest aktualnie godzina ");
         Sekundomierz.setCzasSygnalizatora(Sekundomierz.czasTeraz());
 
         // Tworzenie listy z obiektami gdzie "lista1" to sygnalizatory poziome, a "lista2" to sygnalizatory pionowe
@@ -35,9 +32,25 @@ public class SystemSwietlny {
         System.out.println("W danym momencie sygnalizatorow poziomych jest: " + lista1.length);
         System.out.println("W danym momencie sygnalizatorow pionowych jest: " + lista2.length);
 
-                                     //Petla testowa
-        //Warunek while
-        
+        //Wczytanie przycisku na klawiaturze
+
+        String polecenie;
+        Scanner odczyt = new Scanner(System.in);
+        System.out.println("Wcisnij (y) aby uruchomic albo inny dowolny aby zakonczyc");
+        polecenie = odczyt.nextLine();
+
+        //Sprawdzenie warunku i informacja o rozpoczeciu lub zamknieciu programu
+
+        boolean uruchom = false;
+        if(polecenie.equals("y") || polecenie.equals("Y")) {
+            System.out.println("Uruchamiam sekwencje");
+            uruchom = true;
+        }else {System.out.println("Koncze program");}
+
+        //Petla while sprawdzajaca warunek rozpoczecia
+
+        while(uruchom){
+
             //Pętle for dla listy pierwszej
 
             for (Sygnalizator sekwencja: lista1) {
@@ -45,7 +58,7 @@ public class SystemSwietlny {
                 System.out.println(sekwencja.swiatlo);
             }
 
-            Thread.sleep(Sekundomierz.getCzasZoltoZielone()); // <-------- Uspienie watku symulujace czas oczekiwania
+            Thread.sleep(Sekundomierz.getCzasZoltoCzerwone()); // <-------- Uspienie watku symulujace czas oczekiwania
 
             for(Sygnalizator sekwencja : lista1) {
                  sekwencja.wlaczZielone();
@@ -76,7 +89,7 @@ public class SystemSwietlny {
                 System.out.println(sekwencja.swiatlo);
             }
 
-            Thread.sleep(Sekundomierz.getCzasZoltoZielone());
+            Thread.sleep(Sekundomierz.getCzasZoltoCzerwone());
 
             for (Sygnalizator sekwencja: lista2)
             {
@@ -101,6 +114,6 @@ public class SystemSwietlny {
             Thread.sleep(Sekundomierz.getCzasCzerwone());
 
         System.out.println("GIT");
-
+        }
     }
 }
