@@ -1,13 +1,7 @@
-package Paczka;
-
 public class Sygnalizator {
     Status swiatlo = Status.czerwone;
 
-
-
     //Rozpoczęcie bloku metod zmiany kazdego pojedynczego swiatla.
-
-
     public void wlaczZielone(){
         swiatlo = Status.zielone;
     }
@@ -20,10 +14,5 @@ public class Sygnalizator {
     public void wlaczZoltoCzerwone(){
         swiatlo = Status.zoltoczerwone;
     }
-
-
     //Koniec bloku metod zmiany każdego pojedynczego swiatla.
-
-
-
 }
